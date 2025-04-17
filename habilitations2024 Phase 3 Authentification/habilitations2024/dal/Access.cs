@@ -1,4 +1,5 @@
 ﻿using habilitations2024.bddmanager;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,5 @@ namespace habilitations2024.dal
             }
             return instance;
         }
-
     }
 }

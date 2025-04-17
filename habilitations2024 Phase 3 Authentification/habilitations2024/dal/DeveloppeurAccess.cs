@@ -1,4 +1,5 @@
 ﻿using habilitations2024.model;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -93,6 +94,35 @@ namespace habilitations2024.dal
             }
             return lesDeveloppeurs;
         }
+
+        /// <summary>
+        /// Surcharge de la méthode GetLesDeveloppeurs()
+        /// </summary>
+        /// <returns>liste des développeurs</returns>
+        public static List<Developpeur> GetLesDeveloppeurs(Profil profil)
+        {
+            List<Developpeur> lesDeveloppeurs = new List<Developpeur>();
+            string req = "select d.iddeveloppeur as iddeveloppeur, d.nom as nom, d.prenom as prenom, d.tel as tel, d.mail as mail, p.idprofil as idprofil, p.nom as profil " +
+                         "from developpeur d join profil p on (d.idprofil = p.idprofil) " +
+                         "where p.idprofil = @idprofil";
+
+            Access access = Access.GetInstance();
+            MySqlCommand cmd = access.Manager.ReqPrepare(req);
+            cmd.Parameters.AddWithValue("@idprofil", profil.Idprofil);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Profil leProfil = new Profil((int)reader["idprofil"], (string)reader["profil"]);
+                Developpeur developpeur = new Developpeur((int)reader["iddeveloppeur"], (string)reader["nom"], (string)reader["prenom"],
+                                                          (string)reader["tel"], (string)reader["mail"], leProfil);
+                lesDeveloppeurs.Add(developpeur);
+            }
+
+            reader.Close();
+            return lesDeveloppeurs;
+        }
+
 
         /// <summary>
         /// Demande de suppression d'un développeur

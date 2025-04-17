@@ -91,5 +91,16 @@ namespace habilitations2024.bddmanager
             return records;
         }
 
+        /// <summary>
+        /// Prépare une requête SQL à l'aide de la commande fournie
+        /// </summary>
+        /// <param name="req">requête SQL sous forme de chaîne de caractères</param>
+        /// <returns>Objet MySqlCommand prêt à être exécuté</returns>
+        public MySqlCommand ReqPrepare(string req)
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = req;
+            return cmd;
+        }
     }
 }

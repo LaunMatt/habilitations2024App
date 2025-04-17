@@ -52,6 +52,7 @@ namespace habilitations2024.view
             controller = new FrmHabilitationsController();
             RemplirListeDeveloppeurs();
             RemplirListeProfils();
+            RemplirFiltreProfils();
             EnCourseModifDeveloppeur(false);
             EnCoursModifPwd(false);
         }
@@ -61,7 +62,18 @@ namespace habilitations2024.view
         /// </summary>
         private void RemplirListeDeveloppeurs()
         {
-            List<Developpeur> lesDeveloppeurs = controller.GetLesDeveloppeurs();
+            Profil profilFiltre = (Profil)cboFiltreProfil.SelectedItem;
+            List<Developpeur> lesDeveloppeurs;
+
+            if (profilFiltre != null && profilFiltre.Idprofil != 0)
+            {
+                lesDeveloppeurs = controller.GetLesDeveloppeurs(profilFiltre);
+            }
+            else
+            {
+                lesDeveloppeurs = controller.GetLesDeveloppeurs();
+            }
+
             bdgDeveloppeurs.DataSource = lesDeveloppeurs;
             dgvDeveloppeurs.DataSource = bdgDeveloppeurs;
             dgvDeveloppeurs.Columns["iddeveloppeur"].Visible = false;
@@ -77,6 +89,30 @@ namespace habilitations2024.view
             List<Profil> lesProfils = controller.GetLesProfils();
             bdgProfils.DataSource = lesProfils;
             cboProfil.DataSource = bdgProfils;
+        }
+
+        /// <summary>
+        /// Affiche les profils de développeur pour appliquer un filtre
+        /// </summary>
+        private void RemplirFiltreProfils()
+        {
+            List<Profil> lesProfils = controller.GetLesProfils();
+            List<Profil> lesProfilsAvecVide = new List<Profil>();
+            lesProfilsAvecVide.Add(new Profil(0, "")); // Ligne vide
+            lesProfilsAvecVide.AddRange(lesProfils);
+            cboFiltreProfil.DataSource = lesProfilsAvecVide;
+            cboFiltreProfil.SelectedIndex = 0;
+            cboFiltreProfil.SelectedIndexChanged += CboFiltreProfil_SelectedIndexChanged;
+        }
+
+        /// <summary>
+        /// Permet de gérer le changement de filtre
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void CboFiltreProfil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RemplirListeDeveloppeurs();
         }
 
         /// <summary>

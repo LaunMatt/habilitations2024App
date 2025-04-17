@@ -41,6 +41,15 @@ namespace habilitations2024.controller
         }
 
         /// <summary>
+        /// Surchage de GetLesDeveloppeurs()
+        /// </summary>
+        /// <returns>liste des développeurs</returns>
+        public List<Developpeur> GetLesDeveloppeurs(Profil profil)
+        {
+            return DeveloppeurAccess.GetLesDeveloppeurs(profil);
+        }
+
+        /// <summary>
         /// Récupère et retourne les infos des profils
         /// </summary>
         /// <returns>liste des profils</returns>
