@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "habilitations2024", "habili
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Habilitations2024Installeur", "Habilitations2024Installeur\Habilitations2024Installeur.vdproj", "{2038CBCF-483B-4F5B-96B8-E7C7643775A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "habilitations2024Tests", "habilitations2024Tests\habilitations2024Tests.csproj", "{FCB66C6B-D731-4E89-89B7-893DAF33AB2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +23,15 @@ Global
 		{2038CBCF-483B-4F5B-96B8-E7C7643775A8}.Debug|Any CPU.Build.0 = Debug
 		{2038CBCF-483B-4F5B-96B8-E7C7643775A8}.Release|Any CPU.ActiveCfg = Release
 		{2038CBCF-483B-4F5B-96B8-E7C7643775A8}.Release|Any CPU.Build.0 = Release
+		{FCB66C6B-D731-4E89-89B7-893DAF33AB2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCB66C6B-D731-4E89-89B7-893DAF33AB2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCB66C6B-D731-4E89-89B7-893DAF33AB2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCB66C6B-D731-4E89-89B7-893DAF33AB2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0538F7B4-D972-4B9F-8AD9-B413BDB56A9D}
 	EndGlobalSection
 EndGlobal
