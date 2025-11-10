@@ -48,6 +48,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.grbDeveloppeur = new System.Windows.Forms.GroupBox();
+            this.btnDemandeSupprProfil = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btnEnregProfil = new System.Windows.Forms.Button();
+            this.txtProfil = new System.Windows.Forms.TextBox();
             this.btnDemandeChangePwd = new System.Windows.Forms.Button();
             this.btnDemandeSupprDev = new System.Windows.Forms.Button();
             this.btnDemandeModifDev = new System.Windows.Forms.Button();
@@ -237,6 +241,10 @@
             // 
             // grbDeveloppeur
             // 
+            this.grbDeveloppeur.Controls.Add(this.btnDemandeSupprProfil);
+            this.grbDeveloppeur.Controls.Add(this.label8);
+            this.grbDeveloppeur.Controls.Add(this.btnEnregProfil);
+            this.grbDeveloppeur.Controls.Add(this.txtProfil);
             this.grbDeveloppeur.Controls.Add(this.btnAnnulDev);
             this.grbDeveloppeur.Controls.Add(this.btnEnregDev);
             this.grbDeveloppeur.Controls.Add(this.cboProfil);
@@ -255,6 +263,43 @@
             this.grbDeveloppeur.TabIndex = 5;
             this.grbDeveloppeur.TabStop = false;
             this.grbDeveloppeur.Text = "ajouter un développeur";
+            // 
+            // btnDemandeSupprProfil
+            // 
+            this.btnDemandeSupprProfil.Location = new System.Drawing.Point(521, 70);
+            this.btnDemandeSupprProfil.Name = "btnDemandeSupprProfil";
+            this.btnDemandeSupprProfil.Size = new System.Drawing.Size(75, 23);
+            this.btnDemandeSupprProfil.TabIndex = 14;
+            this.btnDemandeSupprProfil.Text = "supprimer";
+            this.btnDemandeSupprProfil.UseVisualStyleBackColor = true;
+            this.btnDemandeSupprProfil.Click += new System.EventHandler(this.btnDemandeSupprProfil_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(263, 102);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 13);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "nouveau profil";
+            // 
+            // btnEnregProfil
+            // 
+            this.btnEnregProfil.Location = new System.Drawing.Point(521, 97);
+            this.btnEnregProfil.Name = "btnEnregProfil";
+            this.btnEnregProfil.Size = new System.Drawing.Size(75, 23);
+            this.btnEnregProfil.TabIndex = 12;
+            this.btnEnregProfil.Text = "enregistrer";
+            this.btnEnregProfil.UseVisualStyleBackColor = true;
+            this.btnEnregProfil.Click += new System.EventHandler(this.btnEnregProfil_Click);
+            // 
+            // txtProfil
+            // 
+            this.txtProfil.Location = new System.Drawing.Point(354, 98);
+            this.txtProfil.MaxLength = 15;
+            this.txtProfil.Name = "txtProfil";
+            this.txtProfil.Size = new System.Drawing.Size(161, 20);
+            this.txtProfil.TabIndex = 11;
             // 
             // btnDemandeChangePwd
             // 
@@ -362,6 +407,10 @@
         private System.Windows.Forms.Button btnDemandeModifDev;
         private System.Windows.Forms.GroupBox grbLesDeveloppeurs;
         private System.Windows.Forms.DataGridView dgvDeveloppeurs;
+        private System.Windows.Forms.TextBox txtProfil;
+        private System.Windows.Forms.Button btnDemandeSupprProfil;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnEnregProfil;
     }
 }
 
